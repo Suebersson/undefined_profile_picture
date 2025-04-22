@@ -1,11 +1,11 @@
 
-$gitDomain = "https://github.com/";
+# $gitDomain = "https://github.com/";
 $branch = "origin"; # upstream
 $thisFolder = Split-Path -Path (Get-Location) -Leaf;
 $getUser = git config --get user.name;
 
-$repositoryURL = "$gitDomain$getUser/$thisFolder.git";
-# $repositoryURL = git config --get remote.origin.url;
+# $repositoryURL = "$gitDomain$getUser/$thisFolder.git";
+$repositoryURL = git config --get remote.origin.url;
 
 Clear-Host;
 
@@ -15,18 +15,18 @@ Write-Host "   Repositório: " -ForegroundColor Green -NoNewline; Write-Host $re
 Write-Host "=========================================================================================" -ForegroundColor Green; 
 
 # :::::::::::::::::::::::::::: upgrade repository ::::::::::::::::::::::::::::::
-# git add .
-# git commit -m $thisFolder
-# git pull $branch main
-# git push -u $branch main
-
-# :::::::::::::::::::::::::::: first commit in an existing repository ::::::::::::::::::::::::::::::
-git init
 git add .
 git commit -m $thisFolder
-git branch -M main
-git remote add $branch $repositoryURL
+git pull $branch main
 git push -u $branch main
+
+# :::::::::::::::::::::::::::: first commit in an existing repository ::::::::::::::::::::::::::::::
+# git init
+# git add .
+# git commit -m $thisFolder
+# git branch -M main
+# git remote add $branch $repositoryURL
+# git push -u $branch main
 
 
 
