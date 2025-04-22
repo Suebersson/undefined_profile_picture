@@ -1,11 +1,11 @@
 
-# $gitDomain = "https://github.com/";
+$gitDomain = "https://github.com/";
 $branch = "origin"; # upstream
 $thisFolder = Split-Path -Path (Get-Location) -Leaf;
 $getUser = git config --get user.name;
 
-# $repositoryURL = "$gitDomain$getUser/$thisFolder.git";
-$repositoryURL = git config --get remote.origin.url;
+$repositoryURL = "$gitDomain$getUser/$thisFolder.git";
+# $repositoryURL = git config --get remote.origin.url;
 
 Clear-Host;
 
